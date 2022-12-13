@@ -56,11 +56,9 @@ class HandlerLoaderTest extends TestCase
         $this->assertEquals($original, $options);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testHandlerLoaderWithInvalidFormatter()
     {
+        $this->expectException(\InvalidArgumentException::class);
         $options = array(
             'formatter' => 'test_formatter'
         );
@@ -69,11 +67,9 @@ class HandlerLoaderTest extends TestCase
         $loader = new HandlerLoader($options, $formatters);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testHandlerLoaderWithInvalidProcessor()
     {
+        $this->expectException(\InvalidArgumentException::class);
         $dummyClosure = function () {
             // Empty function
         };
@@ -86,11 +82,9 @@ class HandlerLoaderTest extends TestCase
         $loader = new HandlerLoader($options, $formatters, $processors);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testHandlerLoaderWithInvalidHandler()
     {
+        $this->expectException(\InvalidArgumentException::class);
         $dummyClosure = function () {
             // Empty function
         };
@@ -104,11 +98,9 @@ class HandlerLoaderTest extends TestCase
         $loader = new HandlerLoader($options, $formatters, $processors, $handlers);
     }
 
-    /**
-     * @expectedException \InvalidArgumentException
-     */
     public function testHandlerLoaderWithInvalidHandlers()
     {
+        $this->expectException(\InvalidArgumentException::class);
         $dummyClosure = function () {
             // Empty function
         };

@@ -20,7 +20,7 @@ class Json extends FileLoaderAbstract
 {
     /**
      * Valid file extensions for this loader
-     * @var array
+     * @var array<string>
      */
     public static $validExtensions = array('json');
 
@@ -30,7 +30,7 @@ class Json extends FileLoaderAbstract
      * @param  string $resource JSON string or file path to a JSON file
      * @param  string|null $type Not used.
      *
-     * @return array Array containing data from the parsed JSON string or file
+     * @return array<mixed> Array containing data from the parsed JSON string or file
      */
     public function load($resource, $type = null)
     {

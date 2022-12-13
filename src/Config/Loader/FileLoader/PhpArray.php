@@ -14,11 +14,6 @@ namespace Cascade\Config\Loader\FileLoader;
  */
 class PhpArray extends FileLoaderAbstract
 {
-    /**
-     * Valid file extensions for this loader
-     *
-     * @var array
-     */
     public static $validExtensions = array('php');
 
     /**
@@ -27,7 +22,7 @@ class PhpArray extends FileLoaderAbstract
      * @param  string $resource File path to a PHP file that returns an array
      * @param  string|null $type This is not used
      *
-     * @return array Array containing data from the PHP file
+     * @return array<mixed> Array containing data from the PHP file
      */
     public function load($resource, $type = null)
     {

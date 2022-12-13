@@ -28,13 +28,13 @@ class Config
 {
     /**
      * Input from user. This is either a file path, a string or an array
-     * @var string|array
+     * @var string|array<mixed>
      */
     protected $input = null;
 
     /**
      * Array of logger configuration options: (logger attributes, formatters, handlers, etc.)
-     * @var array
+     * @var array<mixed>
      */
     protected $options = array();
 
@@ -71,7 +71,7 @@ class Config
     /**
      * Instantiate a Config object
      *
-     * @param string|array $input User input
+     * @param string|array<mixed> $input User input
      * @param ConfigLoader $loader Config loader object
      */
     public function __construct($input, ConfigLoader $loader)
@@ -83,7 +83,7 @@ class Config
     /**
      * Load config options into the options array using the injected loader
      */
-    public function load()
+    public function load(): void
     {
         $this->options = $this->loader->load($this->input);
     }
@@ -91,7 +91,7 @@ class Config
     /**
      * Configure and register Logger(s) according to the options passed in
      */
-    public function configure()
+    public function configure(): void
     {
         if (!isset($this->options['disable_existing_loggers'])) {
             // We disable any existing loggers by default
@@ -126,9 +126,9 @@ class Config
     /**
      * Configure the formatters
      *
-     * @param  array $formatters Array of formatter options
+     * @param  array<mixed> $formatters Array of formatter options
      */
-    protected function configureFormatters(array $formatters = array())
+    protected function configureFormatters(array $formatters = array()): void
     {
         foreach ($formatters as $formatterId => $formatterOptions) {
             $formatterLoader = new FormatterLoader($formatterOptions);
@@ -139,9 +139,9 @@ class Config
     /**
      * Configure the handlers
      *
-     * @param  array $handlers Array of handler options
+     * @param  array<mixed> $handlers Array of handler options
      */
-    protected function configureHandlers(array $handlers)
+    protected function configureHandlers(array $handlers): void
     {
         foreach ($handlers as $handlerId => $handlerOptions) {
             $handlerLoader = new HandlerLoader($handlerOptions, $this->formatters, $this->processors, $this->handlers);
@@ -152,9 +152,9 @@ class Config
     /**
      * Configure the processors
      *
-     * @param  array $processors Array of processor options
+     * @param  array<mixed> $processors Array of processor options
      */
-    protected function configureProcessors(array $processors)
+    protected function configureProcessors(array $processors): void
     {
         foreach ($processors as $processorName => $processorOptions) {
             $processorLoader = new ProcessorLoader($processorOptions);
@@ -165,9 +165,9 @@ class Config
     /**
      * Configure the loggers
      *
-     * @param  array $loggers Array of logger options
+     * @param  array<mixed> $loggers Array of logger options
      */
-    protected function configureLoggers(array $loggers)
+    protected function configureLoggers(array $loggers): void
     {
         foreach ($loggers as $loggerName => $loggerOptions) {
             $loggerLoader = new LoggerLoader($loggerName, $loggerOptions, $this->handlers, $this->processors);

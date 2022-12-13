@@ -28,7 +28,7 @@ class YamlTest extends TestCase
      */
     protected $yamlLoader = null;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -44,7 +44,7 @@ class YamlTest extends TestCase
             ->getMock();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->yamlLoader = null;
         parent::tearDown();

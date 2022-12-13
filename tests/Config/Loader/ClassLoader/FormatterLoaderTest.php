@@ -23,7 +23,7 @@ class FormatterLoaderTest extends TestCase
     /**
      * Set up function
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
         new FormatterLoader(array());
@@ -32,7 +32,7 @@ class FormatterLoaderTest extends TestCase
     /**
      * Tear down function
      */
-    public function tearDown()
+    public function tearDown(): void
     {
         FormatterLoader::$extraOptionHandlers = array();
         parent::tearDown();

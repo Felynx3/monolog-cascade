@@ -37,7 +37,7 @@ class HandlerLoader extends ClassLoader
      * @see ClassLoader::__construct
      * @see \Monolog\Handler classes for handler options
      *
-     * @param array $handlerOptions Handler options
+     * @param array<mixed> $handlerOptions Handler options
      * @param FormatterInterface[] $formatters Array of formatter to pick from
      * @param callable[] $processors Array of processors to pick from
      * @param callable[] $handlers Array of handlers to pick from
@@ -65,10 +65,10 @@ class HandlerLoader extends ClassLoader
      *
      * @throws \InvalidArgumentException
      *
-     * @param  array &$handlerOptions Handler options
+     * @param  array<mixed> &$handlerOptions Handler options
      * @param  FormatterInterface[] $formatters Array of formatter to pick from
      */
-    private function populateFormatters(array &$handlerOptions, array $formatters)
+    private function populateFormatters(array &$handlerOptions, array $formatters): void
     {
         if (isset($handlerOptions['formatter'])) {
             if (isset($formatters[$handlerOptions['formatter']])) {
@@ -90,10 +90,10 @@ class HandlerLoader extends ClassLoader
      *
      * @throws \InvalidArgumentException
      *
-     * @param  array &$handlerOptions Handler options
+     * @param  array<mixed> &$handlerOptions Handler options
      * @param  callable[] $processors Array of processors to pick from
      */
-    private function populateProcessors(array &$handlerOptions, array $processors)
+    private function populateProcessors(array &$handlerOptions, array $processors): void
     {
         $processorArray = array();
 
@@ -121,10 +121,10 @@ class HandlerLoader extends ClassLoader
      *
      * @throws \InvalidArgumentException
      *
-     * @param  array &$handlerOptions Handler options
+     * @param  array<mixed> &$handlerOptions Handler options
      * @param  callable[] $handlers Array of handlers to pick from
      */
-    private function populateHandlers(array &$handlerOptions, array $handlers)
+    private function populateHandlers(array &$handlerOptions, array $handlers): void
     {
         $handlerArray = array();
 
@@ -175,7 +175,7 @@ class HandlerLoader extends ClassLoader
      * You can use the '*' wildcard if you want to set up an option for all
      * Handler classes
      */
-    public static function initExtraOptionsHandlers()
+    public static function initExtraOptionsHandlers(): void
     {
         self::$extraOptionHandlers = array(
             '*' => array(

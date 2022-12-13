@@ -22,7 +22,7 @@ class Yaml extends FileLoaderAbstract
 {
     /**
      * Valid file extensions for this loader
-     * @var array
+     * @var array<string>
      */
     public static $validExtensions = array(
         'yaml', // official extension
@@ -35,9 +35,9 @@ class Yaml extends FileLoaderAbstract
      * @param  string $resource Yaml string or file path to a Yaml file
      * @param  string|null $type Not used
      *
-     * @return array Array containing data from the parse Yaml string or file
+     * @return array<mixed> Array containing data from the parse Yaml string or file
      */
-    public function load($resource, $type = null)
+    public function load($resource, $type = null): array
     {
         return YamlParser::parse($this->readFrom($resource));
     }

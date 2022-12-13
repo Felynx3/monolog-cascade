@@ -100,9 +100,9 @@ class Cascade
     /**
      * Load configuration options from a file, a JSON or Yaml string or an array.
      *
-     * @param string|array $resource Path to config file or configuration as string or array
+     * @param string|array<mixed> $resource Path to config file or configuration as string or array
      */
-    public static function fileConfig($resource)
+    public static function fileConfig($resource): void
     {
         self::$config = new Config($resource, new ConfigLoader());
         self::$config->load();
@@ -115,7 +115,7 @@ class Cascade
      *
      * @param string $configString Configuration in string form
      */
-    public static function loadConfigFromString($configString)
+    public static function loadConfigFromString($configString): void
     {
         self::fileConfig($configString);
     }
@@ -124,9 +124,9 @@ class Cascade
      * Load configuration options from an array. Alias of fileConfig.
      * @see fileConfig
      *
-     * @param array $configArray Configuration in array form
+     * @param array<mixed> $configArray Configuration in array form
      */
-    public static function loadConfigFromArray($configArray)
+    public static function loadConfigFromArray($configArray): void
     {
         self::fileConfig($configArray);
     }

@@ -27,14 +27,14 @@ class PhpArrayTest extends TestCase
      */
     protected $arrayLoader = null;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
         $this->arrayLoader = new ArrayLoader();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->arrayLoader = null;
         parent::tearDown();

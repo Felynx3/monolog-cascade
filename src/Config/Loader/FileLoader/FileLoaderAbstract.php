@@ -19,6 +19,11 @@ use Symfony\Component\Config\Loader\FileLoader;
  */
 abstract class FileLoaderAbstract extends FileLoader
 {
+    /**
+     * Valid file extensions for this loader
+     *
+     * @var array<string>
+     */
     public static $validExtensions = array();
 
     /**
@@ -73,10 +78,10 @@ abstract class FileLoaderAbstract extends FileLoader
     /**
      * Return a section of an array based on the key passed in
      *
-     * @param  array $array Array we want the section from
+     * @param  array<mixed> $array Array we want the section from
      * @param  string $section Section name (key)
      *
-     * @return array|mixed Return the section of an array or just a value
+     * @return array<mixed>|mixed Return the section of an array or just a value
      */
     public function getSectionOf($array, $section = '')
     {

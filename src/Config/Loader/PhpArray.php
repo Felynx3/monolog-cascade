@@ -23,10 +23,10 @@ class PhpArray extends Loader
     /**
      * Loads an array
      *
-     * @param  array $array Array to load
+     * @param  array<mixed> $array Array to load
      * @param  string|null $type Not used
      *
-     * @return array The passed in array
+     * @return array<mixed> The passed in array
      */
     public function load($array, $type = null)
     {

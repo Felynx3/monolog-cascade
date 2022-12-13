@@ -26,7 +26,7 @@ class JsonTest extends TestCase
      */
     protected $jsonLoader = null;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -42,7 +42,7 @@ class JsonTest extends TestCase
             ->getMock();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->jsonLoader = null;
         parent::tearDown();

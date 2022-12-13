@@ -30,7 +30,7 @@ class ClassLoaderTest extends TestCase
     /**
      * Set up function
      */
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
     }
@@ -38,7 +38,7 @@ class ClassLoaderTest extends TestCase
     /**
      * Tear down function
      */
-    public function tearDown()
+    public function tearDown(): void
     {
         ClassLoader::$extraOptionHandlers = array();
         parent::tearDown();

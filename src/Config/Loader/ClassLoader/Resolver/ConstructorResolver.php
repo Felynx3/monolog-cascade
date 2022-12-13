@@ -29,7 +29,7 @@ class ConstructorResolver
 
     /**
      * Registry of resolvers
-     * @var array
+     * @var array<mixed>
      */
     private static $resolvers = array();
 
@@ -58,7 +58,7 @@ class ConstructorResolver
      * Convert the parameter names to camelCase for classes that have contructor
      * params defined in snake_case for consistency with the options
      */
-    public function initConstructorArgs()
+    public function initConstructorArgs(): void
     {
         $constructor = $this->reflected->getConstructor();
 
@@ -74,9 +74,9 @@ class ConstructorResolver
     /**
      * Returns the contructor args as an associative array
      *
-     * @return array Contructor args
+     * @return array<\ReflectionParameter> Contructor args
      */
-    public function getConstructorArgs()
+    public function getConstructorArgs(): array
     {
         return $this->constructorArgs;
     }
@@ -96,7 +96,7 @@ class ConstructorResolver
      *
      * @param  OptionsResolver $optionsResolver OptionResolver to configure
      */
-    protected function configureOptions(OptionsResolver $optionsResolver)
+    protected function configureOptions(OptionsResolver $optionsResolver): void
     {
         foreach ($this->constructorArgs as $name => $param) {
             if ($param->isOptional() && $param->isDefaultValueAvailable()) {
@@ -112,11 +112,11 @@ class ConstructorResolver
      * the option values passed in. We assume the passed in array has been resolved already.
      * i.e. That the arg name has an entry in the option array.
      *
-     * @param  array $hashOfOptions Array of options
+     * @param  array<mixed> $hashOfOptions Array of options
      *
-     * @return array Array of ordered args
+     * @return array<mixed> Array of ordered args
      */
-    public function hashToArgsArray($hashOfOptions)
+    public function hashToArgsArray($hashOfOptions): array
     {
         $optionsArray = new \SplFixedArray(count($hashOfOptions));
 
@@ -130,15 +130,15 @@ class ConstructorResolver
     /**
      * Resolve options against constructor args
      *
-     * @param  array $options Array of option values. Expected array looks like:
+     * @param  array<mixed> $options Array of option values. Expected array looks like:
      *     array(
      *         'someParam' => 'def',
      *         'someOtherParam' => 'sdsad'
      *     )
      *
-     * @return array Array of resolved ordered args
+     * @return array<mixed> Array of resolved ordered args
      */
-    public function resolve(array $options)
+    public function resolve(array $options): array
     {
         $reflectedClassName = $this->reflected->getName();
 

@@ -24,7 +24,7 @@ class LoggerLoader
 {
     /**
      * Array of options
-     * @var array
+     * @var array<mixed>
      */
     protected $loggerOptions = array();
 
@@ -50,7 +50,7 @@ class LoggerLoader
      * Constructor
      *
      * @param string $loggerName Name of the logger
-     * @param array  $loggerOptions Array of logger options
+     * @param array<mixed>  $loggerOptions Array of logger options
      * @param Monolog\Handler\HandlerInterface[] $handlers Array of Monolog handlers
      * @param callable[] $processors Array of processors
      */
@@ -74,12 +74,12 @@ class LoggerLoader
      *
      * @throws \InvalidArgumentException if a requested handler is not available in $handlers
      *
-     * @param  array $loggerOptions Array of logger options
+     * @param  array<mixed> $loggerOptions Array of logger options
      * @param  Monolog\Handler\HandlerInterface[] $handlers Available Handlers to resolve against
      *
      * @return Monolog\Handler\HandlerInterface[] Array of Monolog handlers
      */
-    public function resolveHandlers(array $loggerOptions, array $handlers)
+    public function resolveHandlers(array $loggerOptions, array $handlers): array
     {
         $handlerArray = array();
 
@@ -112,12 +112,12 @@ class LoggerLoader
      *
      * @throws \InvalidArgumentException if a requested processor is not available in $processors
      *
-     * @param  array $loggerOptions Array of logger options
+     * @param  array<mixed> $loggerOptions Array of logger options
      * @param  callable[] $processors Available Processors to resolve against
      *
      * @return callable[] Array of Monolog processors
      */
-    public function resolveProcessors(array $loggerOptions, $processors)
+    public function resolveProcessors(array $loggerOptions, $processors): array
     {
         $processorArray = array();
 
@@ -149,7 +149,7 @@ class LoggerLoader
      *
      * @param Monolog\Handler\HandlerInterface[] $handlers Array of Monolog handlers
      */
-    private function addHandlers(array $handlers)
+    private function addHandlers(array $handlers): void
     {
         // We need to reverse the array because Monolog "pushes" handlers to top of the stack
         foreach (array_reverse($handlers) as $handler) {
@@ -161,8 +161,9 @@ class LoggerLoader
      * Add processors to the Logger
      *
      * @param callable[] $processors Array of Monolog processors
+     *
      */
-    private function addProcessors(array $processors)
+    private function addProcessors(array $processors): void
     {
         // We need to reverse the array because Monolog "pushes" processors to top of the stack
         foreach (array_reverse($processors) as $processor) {

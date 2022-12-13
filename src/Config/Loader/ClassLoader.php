@@ -43,7 +43,7 @@ class ClassLoader
      *             'myOption' => Closure
      *         ), ...
      *     )
-     * @var array
+     * @var array<mixed>
      */
     public static $extraOptionHandlers = array();
 
@@ -61,14 +61,14 @@ class ClassLoader
 
     /**
      * Array of options. This is a raw copy of the options passed in.
-     * @var array
+     * @var array<mixed>
      */
     protected $rawOptions = array();
 
     /**
      * Constructor
      *
-     * @param array $options Array of options
+     * @param array<mixed> $options Array of options
      * The option array might look like:
      *     array(
      *         'class' => 'Some\Class',
@@ -87,7 +87,7 @@ class ClassLoader
     /**
      * Set the class you want to load from the raw option array
      */
-    protected function setClass()
+    protected function setClass(): void
     {
         if (!isset($this->rawOptions['class'])) {
             $this->rawOptions['class'] = static::DEFAULT_CLASS;
@@ -101,7 +101,7 @@ class ClassLoader
      * Recursively loads objects into any of the rawOptions that represent
      * a class
      */
-    protected function loadChildClasses()
+    protected function loadChildClasses(): void
     {
         foreach ($this->rawOptions as &$option) {
             if (is_array($option)
@@ -117,11 +117,11 @@ class ClassLoader
     /**
      * Return option values indexed by name using camelCased keys
      *
-     * @param  array  $options Array of options
+     * @param  array<mixed>  $options Array of options
      *
      * @return mixed[] Array of options indexed by (camelCased) name
      */
-    public static function optionsToCamelCase(array $options)
+    public static function optionsToCamelCase(array $options): array
     {
         $optionsByName = array();
 
@@ -141,9 +141,9 @@ class ClassLoader
      * Extra options are those that are not in the contructor. The constructor arguments determine
      * what goes into which bucket
      *
-     * @return array Array of constructorOptions and extraOptions
+     * @return array<mixed> Array of constructorOptions and extraOptions
      */
-    private function resolveOptions()
+    private function resolveOptions(): array
     {
         $constructorResolver = new ConstructorResolver($this->reflected);
 
@@ -227,10 +227,10 @@ class ClassLoader
     /**
      * Set extra options if any were requested
      *
-     * @param  array $extraOptions Array of extra options (key => value)
+     * @param  array<mixed> $extraOptions Array of extra options (key => value)
      * @param  mixed $instance Instance you want to set options for
      */
-    public function loadExtraOptions($extraOptions, $instance)
+    public function loadExtraOptions($extraOptions, $instance): void
     {
         foreach ($extraOptions as $name => $value) {
             if ($this->reflected->hasMethod($name)) {

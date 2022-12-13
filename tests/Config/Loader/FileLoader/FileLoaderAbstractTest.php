@@ -30,7 +30,7 @@ class FileLoaderAbstractTest extends TestCase
      */
     protected $mock = null;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -48,7 +48,7 @@ class FileLoaderAbstractTest extends TestCase
         \FileLoaderAbstractMockClass::$validExtensions = array('test', 'php');
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->mock = null;
         parent::tearDown();
@@ -152,11 +152,10 @@ class FileLoaderAbstractTest extends TestCase
 
     /**
      * Test loading an invalid file
-     *
-     * @expectedException \RuntimeException
      */
     public function testloadFileFromInvalidFile()
     {
+        $this->expectException(\RuntimeException::class);
         // mocking the file system from a 'config_dir' base dir
         $root = vfsStream::setup('config_dir');
 

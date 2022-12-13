@@ -27,13 +27,13 @@ class ConfigLoaderTest extends TestCase
      */
     protected $loader = null;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setup();
         $this->loader = new ConfigLoader();
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $this->loader = null;
         parent::tearDown();

@@ -1,5 +1,13 @@
-Monolog Cascade [![Build Status](https://travis-ci.org/theorchard/monolog-cascade.svg?branch=master)](https://travis-ci.org/theorchard/monolog-cascade) [![Coverage Status](https://coveralls.io/repos/theorchard/monolog-cascade/badge.svg?branch=master)](https://coveralls.io/r/theorchard/monolog-cascade?branch=master)
+Monolog Cascade
 ===============
+
+Compatibility
+-------------
+
+| PHP  | Tag | Branch |
+|------|-----|--------|
+| ^8.1 | 1.X | master |
+| ^7.0 | 0.X | 7.2    |
 
 What is Monolog Cascade?
 ------------------------

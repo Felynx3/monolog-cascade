@@ -157,7 +157,7 @@ class Config
     protected function configureProcessors(array $processors)
     {
         foreach ($processors as $processorName => $processorOptions) {
-            $processorLoader = new ProcessorLoader($processorOptions, $this->processors);
+            $processorLoader = new ProcessorLoader($processorOptions);
             $this->processors[$processorName] = $processorLoader->load();
         }
     }

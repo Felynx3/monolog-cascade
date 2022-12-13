@@ -147,7 +147,7 @@ class LoggerLoader
     /**
      * Add handlers to the Logger
      *
-     * @param Monolog\Handler\HandlerInterface[] Array of Monolog handlers
+     * @param Monolog\Handler\HandlerInterface[] $handlers Array of Monolog handlers
      */
     private function addHandlers(array $handlers)
     {
@@ -160,7 +160,7 @@ class LoggerLoader
     /**
      * Add processors to the Logger
      *
-     * @param callable[] Array of Monolog processors
+     * @param callable[] $processors Array of Monolog processors
      */
     private function addProcessors(array $processors)
     {

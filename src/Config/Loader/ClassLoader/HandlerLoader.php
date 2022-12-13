@@ -11,10 +11,11 @@
 namespace Cascade\Config\Loader\ClassLoader;
 
 use Monolog\Formatter\FormatterInterface;
-use Monolog\Handler\HandlerInterface;
+use Monolog\Handler\FormattableHandlerInterface;
 use Monolog\Handler\LogglyHandler;
 
 use Cascade\Config\Loader\ClassLoader;
+use Monolog\Handler\ProcessableHandlerInterface;
 
 /**
  * Handler Loader. Loads the Handler options, validate them and instantiates
@@ -178,10 +179,10 @@ class HandlerLoader extends ClassLoader
     {
         self::$extraOptionHandlers = array(
             '*' => array(
-                'formatter' => function (HandlerInterface $instance, FormatterInterface $formatter) {
+                'formatter' => function (FormattableHandlerInterface $instance, FormatterInterface $formatter) {
                     $instance->setFormatter($formatter);
                 },
-                'processors' => function (HandlerInterface $instance, array $processors) {
+                'processors' => function (ProcessableHandlerInterface $instance, array $processors) {
                     // We need to reverse the array because Monolog "pushes" processors to top of the stack
                     foreach (array_reverse($processors) as $processor) {
                         $instance->pushProcessor($processor);

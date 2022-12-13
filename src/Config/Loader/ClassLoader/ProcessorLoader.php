@@ -33,7 +33,7 @@ class ProcessorLoader extends ClassLoader
      * @param array $processorOptions Processor options
      * @param Monolog\Processor\ProcessorInterface[] $processors Array of processors to pick from
      */
-    public function __construct(array &$processorOptions, array $processors = array())
+    public function __construct(array $processorOptions)
     {
         parent::__construct($processorOptions);
 

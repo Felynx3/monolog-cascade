@@ -31,12 +31,6 @@
         "michaelmoussa/php-coverage-checker": "^1.1"
     },
     "scripts": {
-        "lint": [
-            "php-cs-fixer fix --ansi --verbose --show-progress=dots"
-        ],
-        "lint:check": [
-            "@lint --dry-run"
-        ],
         "security-check": [
             "curl -sS https://get.symfony.com/cli/installer | bash -s -- --install-dir=/usr/local/bin",
             "symfony check:security"

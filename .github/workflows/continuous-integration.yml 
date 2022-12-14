@@ -72,7 +72,7 @@ jobs:
       - name: Run security check
         run: composer security-check
   test-unit-coverage:
-    name: Unit tests, coverage and mutation
+    name: Unit tests and coverage
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
